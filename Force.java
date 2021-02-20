@@ -5,8 +5,7 @@ class Force {
         ToAscii Word = new ToAscii("John5"); //select word to convert here.
         Word.Convert();
 
-        String passwd = "!!!!!";
-        boolean accuracy = false;
+        String passwd = "John5";
         String var = "";
 
         for (int a = 33; a <= 126; a++) {
@@ -60,4 +59,3 @@ class ToAscii {
         System.out.println(fin);
     }
 }
-

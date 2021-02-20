@@ -3,6 +3,7 @@
 class Control {
     static Timer timer = new Timer();
     static Force force = new Force();
+    static Pattern pattern = new Pattern();
 
     public static void main(String args[]) {
         Thread Time = new Thread() {
@@ -13,8 +14,12 @@ class Control {
 
         Thread Attempt = new Thread() {
             public void run() {
-                String str = force.Run();
-                System.out.println(str);
+
+                boolean Try = pattern.Run();
+
+                if (Try == false) {
+                    force.Run();
+                }
                 timer.End();
             }
         };

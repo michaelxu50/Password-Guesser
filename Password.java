@@ -28,3 +28,23 @@ class Control {
         Attempt.start();
     }
 }
+
+class ToAscii {
+    public static void main(String args[]) {
+
+        String rp = "John5?";
+        String ascii = "";
+        String fin = "";
+
+        for (int x=0; x<rp.length(); x++) {
+            char character = rp.charAt(x); // This set character to each digit of rp.
+            ascii = (int) character + ""; //Sets ascii to the ascii form of each character.
+
+            if (ascii.length() == 2) {
+                ascii = "0" + ascii;
+            }
+            fin += ascii + "";
+        }
+        System.out.println(fin);
+    }
+}

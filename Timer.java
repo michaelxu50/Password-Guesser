@@ -5,7 +5,7 @@ class Timer {
     int seconds = 0;
     int minutes = 0; // Init minutes time
     int hours = 0; //Init hour time
-    int display = 1; //change how often the time is displayed (number <= 60)
+    int display = 60; //change how often the time is displayed (number <= 60)
 
     void Start() {
         for (seconds = display; seconds < 100; seconds += display) {
@@ -36,6 +36,14 @@ class Timer {
     }
 
     void End() {
+        if (seconds == 60) { //turns seconds into minutes
+            minutes += 1;
+            seconds = 0;
+        }
+        if (minutes == 60) { //turns minutes into hours
+            hours += 1;
+            minutes = 0;
+        }
         System.out.println("Final Time " + hours + ": " + minutes + ": " + seconds);
         System.exit(0);
     }

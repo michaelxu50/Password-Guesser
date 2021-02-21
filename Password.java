@@ -32,7 +32,7 @@ class Control {
 class ToAscii {
     public static void main(String args[]) {
 
-        String rp = "John5?";
+        String rp = "Jimmy9%";
         String ascii = "";
         String fin = "";
 

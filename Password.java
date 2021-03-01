@@ -1,11 +1,14 @@
 //Control center to run all other classes in the best order.
 
-class Control {
+class ControlWord {
     static Timer timer = new Timer();
     static Force force = new Force();
     static Pattern pattern = new Pattern();
 
     public static void main(String args[]) {
+        //ToAscii ascii = new ToAscii("Mikey5*");
+        ascii.Run();
+
         Thread Time = new Thread() {
             public void run() {
                 timer.Start();
@@ -14,12 +17,62 @@ class Control {
 
         Thread Attempt = new Thread() {
             public void run() {
+                //Word.run
+                force.Run();
+                timer.End();
+            }
+        };
 
-                boolean Try = pattern.Run();
+        Time.start();
+        Attempt.start();
+    }
+}
 
-                if (Try == false) {
-                    force.Run();
-                }
+class ControlPattern {
+    static Timer timer = new Timer();
+    static Force force = new Force();
+    static Pattern pattern = new Pattern();
+
+    public static void main(String args[]) {
+        //ToAscii ascii = new ToAscii("Mikey5*");
+        ascii.Run();
+
+        Thread Time = new Thread() {
+            public void run() {
+                timer.Start();
+            }
+        };
+
+        Thread Attempt = new Thread() {
+            public void run() {
+                pattern.Run();
+                timer.End();
+            }
+        };
+
+        Time.start();
+        Attempt.start();
+    }
+}
+
+class ControlForce {
+    static Timer timer = new Timer();
+    static Force force = new Force();
+    static Pattern pattern = new Pattern();
+
+    public static void main(String args[]) {
+        //ToAscii ascii = new ToAscii("Mikey5*");
+        ascii.Run();
+
+        Thread Time = new Thread() {
+            public void run() {
+                timer.Start();
+            }
+        };
+
+        Thread Attempt = new Thread() {
+            public void run() {
+                force.Run();
                 timer.End();
             }
         };
@@ -30,9 +83,13 @@ class Control {
 }
 
 class ToAscii {
-    public static void main(String args[]) {
+    String rp = "";
 
-        String rp = "Jimmy9%";
+    ToAscii(String x) {
+        rp = x;
+    }
+
+    void Run() {
         String ascii = "";
         String fin = "";
 

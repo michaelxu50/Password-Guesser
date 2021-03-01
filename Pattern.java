@@ -1,8 +1,11 @@
 class Pattern {
 
-    public boolean Run() {
+    String passwd = "Mikey5*";
+    //1 + 11 0s
+    //100,000,000,000
+    //100 billion
 
-        String passwd = "Jimmy9%";
+    public boolean Run() {
 
         for (int a = 65; a <= 90; a++) { //1
             String ca = Character.toString(a);

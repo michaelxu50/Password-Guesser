@@ -26,7 +26,7 @@ class Force {
                                     var = ca + cb + cc + cd + ce + cf + cg;
                                     if (var.equals(passwd)) {
                                         System.out.println("The password is " + var);
-                                        return var;
+                                        System.exit(0);
                                     }
                                 }
                             }

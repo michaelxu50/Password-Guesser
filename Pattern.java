@@ -25,7 +25,7 @@ class Pattern {
                                     String var = ca + cb + cc + cd + ce + cf + cg;
                                     if (var.equals(passwd)) {
                                         System.out.println("The password is " + var);
-                                        return true;
+                                        System.exit(0);
                                     }
                                 }
                             }

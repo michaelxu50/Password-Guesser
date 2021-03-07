@@ -1,13 +1,15 @@
 //Control center to run all other classes in the best order.
 
-class ControlWord {
+class ControlAll {
     static Timer timer = new Timer();
     static Force force = new Force();
     static Pattern pattern = new Pattern();
+    static Pin pin = new Pin();
+    static Word word = new Word();
 
     public static void main(String args[]) {
         //ToAscii ascii = new ToAscii("Mikey5*");
-        ascii.Run();
+        //ascii.Run();
 
         Thread Time = new Thread() {
             public void run() {
@@ -17,8 +19,33 @@ class ControlWord {
 
         Thread Attempt = new Thread() {
             public void run() {
-                //Word.run
+                word.Run();
+                pattern.Run();
                 force.Run();
+                timer.End();
+            }
+        };
+
+        Time.start();
+        Attempt.start();
+    }
+}
+
+class ControlWord {
+    static Timer timer = new Timer();
+    static Word word = new Word();
+
+    public static void main(String args[]) {
+
+        Thread Time = new Thread() {
+            public void run() {
+                timer.Start();
+            }
+        };
+
+        Thread Attempt = new Thread() {
+            public void run() {
+                //word.Run();
                 timer.End();
             }
         };
@@ -30,12 +57,9 @@ class ControlWord {
 
 class ControlPattern {
     static Timer timer = new Timer();
-    static Force force = new Force();
     static Pattern pattern = new Pattern();
 
     public static void main(String args[]) {
-        //ToAscii ascii = new ToAscii("Mikey5*");
-        ascii.Run();
 
         Thread Time = new Thread() {
             public void run() {
@@ -58,11 +82,8 @@ class ControlPattern {
 class ControlForce {
     static Timer timer = new Timer();
     static Force force = new Force();
-    static Pattern pattern = new Pattern();
 
     public static void main(String args[]) {
-        //ToAscii ascii = new ToAscii("Mikey5*");
-        ascii.Run();
 
         Thread Time = new Thread() {
             public void run() {

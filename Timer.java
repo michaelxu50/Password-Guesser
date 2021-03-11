@@ -1,11 +1,17 @@
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
+//timer that is used to test how long the code takes to run.
 class Timer {
+    int display;
+    Timer(int in) {
+        display = in;
+    }
+
     int seconds = 0;
     int minutes = 0; // Init minutes time
     int hours = 0; //Init hour time
-    int display = 10; //change how often the time is displayed (number <= 60)
+    //int display = 1; //change how often the time is displayed (number <= 60)
 
     void Start() {
         for (seconds = display; seconds < 100; seconds += display) {

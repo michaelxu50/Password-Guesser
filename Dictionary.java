@@ -1,18 +1,21 @@
+import java.io.FileReader;
+import java.util.*;
+
 class Remove {
     public static void main(String args[]) {
-        String word = ""
-
+        String word = ""; //Text that needs to be edited
         String newword = "";
+
         for (int x = 0; x < word.length(); x++) {
-            char character = word.charAt(x); // This set character to each digit of rp.
-            String remove = "God"; //•
-            String remove2 = "LORD";
-            String add = "Hug";
+            String remove = "•"; //Characters that want to be removed.
+            //String remove2 = "";
+            String add = ""; //Characters that want to replace "remove".
 
             newword = word.replace(remove, add);
-            newword += word.replace(remove2, add);
+            //newword += word.replace(remove2, add);
 
         }
         System.out.println(newword);
     }
 }
+

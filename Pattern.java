@@ -1,6 +1,9 @@
 class Pattern {
+    String passwd = "";
+    Pattern(String code) {
+        passwd = code;
+    }
 
-    String passwd = "Mikey5*";
     //1 + 11 0s
     //100,000,000,000
     //100 billion
@@ -33,7 +36,7 @@ class Pattern {
                     }
                 }
             }
-            System.out.println("Processed " + a);
+            System.out.println("Processed " + a); //progress report.
         }
         return false;
     }

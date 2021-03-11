@@ -1,15 +1,17 @@
 //Control center to run all other classes in the best order.
+//ControlAll runs all the codes in order of complexity.
+//Other classes run just one of the codes.
+//ToAscii is for reference.
 
+//class to control all password guessers in order of complexity (least to most).
 class ControlAll {
-    static Timer timer = new Timer();
-    static Force force = new Force();
-    static Pattern pattern = new Pattern();
-    static Pin pin = new Pin();
-    static Word word = new Word();
-
     public static void main(String args[]) {
-        //ToAscii ascii = new ToAscii("Mikey5*");
-        //ascii.Run();
+        String tryword = "Father15"; //password to try
+        Timer timer = new Timer(10);
+        Force force = new Force(tryword);
+        Pattern pattern = new Pattern(tryword);
+        Pin pin = new Pin();
+        Word word = new Word(tryword);
 
         Thread Time = new Thread() {
             public void run() {
@@ -19,8 +21,15 @@ class ControlAll {
 
         Thread Attempt = new Thread() {
             public void run() {
-                word.Run();
+                try {
+                    word.Run();
+                    System.out.println("Word is done");
+                }
+                catch (Exception e) {
+                    System.out.print("It's broken");
+                }
                 pattern.Run();
+                System.out.println("Pattern is done");
                 force.Run();
                 timer.End();
             }
@@ -31,11 +40,11 @@ class ControlAll {
     }
 }
 
+//class to just run word.
 class ControlWord {
-    static Timer timer = new Timer();
-    static Word word = new Word();
-
     public static void main(String args[]) {
+        Timer timer = new Timer(1);
+        Word word = new Word("Neck20%"); //password that the computer attempts to find
 
         Thread Time = new Thread() {
             public void run() {
@@ -45,7 +54,12 @@ class ControlWord {
 
         Thread Attempt = new Thread() {
             public void run() {
-                //word.Run();
+                try {
+                    word.Run();
+                }
+                catch (Exception e) {
+                    System.out.println("It's broken");
+                }
                 timer.End();
             }
         };
@@ -54,12 +68,12 @@ class ControlWord {
         Attempt.start();
     }
 }
-
+//class just to run pattern.
 class ControlPattern {
-    static Timer timer = new Timer();
-    static Pattern pattern = new Pattern();
+    static Timer timer = new Timer(15);
 
     public static void main(String args[]) {
+        Pattern pattern = new Pattern("Joe15!"); //password that the computer attempts to find.
 
         Thread Time = new Thread() {
             public void run() {
@@ -79,11 +93,11 @@ class ControlPattern {
     }
 }
 
+//class to run force.
 class ControlForce {
-    static Timer timer = new Timer();
-    static Force force = new Force();
-
     public static void main(String args[]) {
+        Force force = new Force("Joe15!"); //password that the computer attempts to find.
+        Timer timer = new Timer(60);
 
         Thread Time = new Thread() {
             public void run() {
@@ -103,6 +117,7 @@ class ControlForce {
     }
 }
 
+//converts words to ascii as reference. NOT ACTUALLY USED.
 class ToAscii {
     String rp = "";
 

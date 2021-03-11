@@ -1,6 +1,10 @@
 class Force {
+    String passwd = "";
 
-    String passwd = "Mikey5*";
+    Force(String code) {
+        passwd = code;
+    }
+
     String var = "";
     //6 + 13 0s
     //60,000,000,000,000
@@ -32,11 +36,10 @@ class Force {
                             }
                         }
                     }
-                    System.out.println("Sub " + c);
                 }
-                System.out.println("Subclass " + b);
+                System.out.println("Subclass " + b); //progress report.
             }
-            System.out.println("Processed " + a);
+            System.out.println("Processed " + a); //progress report.
         }
         return var;
     }
